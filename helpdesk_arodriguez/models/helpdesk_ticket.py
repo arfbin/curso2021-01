@@ -33,3 +33,24 @@ class HelpdeskTicket(models.Model):
     action_preventive = fields.Html(
         string='Preventive Action',
         help='Descrive preventive actions to do')
+    
+    #Asignar, cambia estado a asignado y pone a true el campo asignado, visible sólo con estado = nuevo
+    def do_assign(self):
+        self.ensure_one()
+        self.write({
+            'state': 'assigned',
+            'assigned': True
+        })
+    
+    def do_pending(self):
+        self.ensure_one()
+        self.state = 'pending'
+    
+    def do_resolved(self):
+        self.ensure_one()
+        self.state = 'resolved'
+    
+    def do_canceled(self):
+        self.ensure_one()
+        self.state = 'canceled'
+        

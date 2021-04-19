@@ -7,6 +7,10 @@
         <field name="arch" type="xml">
             <form>
                 <header>
+                    <button string="Assing" name="do_assign" type="object" states="new"/>
+                    <button string="Pending" name="do_pending" type="object" states="new,assigned"/>
+                    <button string="Resolve" name="do_resolved" type="object" states="new,assigned,pending"/>
+                    <button string="Cancel" name="do_canceled" type="object" states="new,assigned,pending,revolsed"/>
                     <field name="state" widget="statusbar"/>
                 </header>
 

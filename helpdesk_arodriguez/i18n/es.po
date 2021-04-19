@@ -1,0 +1,198 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_arodriguez
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-04-19 16:17+0000\n"
+"PO-Revision-Date: 2021-04-19 16:17+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: helpdesk_arodriguez
+#: model:ir.model.fields,field_description:helpdesk_arodriguez.field_helpdesk_ticket__assigned
+#: model:ir.model.fields.selection,name:helpdesk_arodriguez.selection__helpdesk_ticket__state__assigned
+msgid "Assigned"
+msgstr "Asignado"
+
+#. module: helpdesk_arodriguez
+#: model_terms:ir.ui.view,arch_db:helpdesk_arodriguez.view_helpdesk_ticket_form
+msgid "Assing"
+msgstr "Asignar"
+
+#. module: helpdesk_arodriguez
+#: model_terms:ir.ui.view,arch_db:helpdesk_arodriguez.view_helpdesk_ticket_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: helpdesk_arodriguez
+#: model:ir.model.fields.selection,name:helpdesk_arodriguez.selection__helpdesk_ticket__state__canceled
+msgid "Canceled"
+msgstr "Cancelado"
+
+#. module: helpdesk_arodriguez
+#: model_terms:ir.ui.view,arch_db:helpdesk_arodriguez.view_helpdesk_ticket_form
+msgid "Corrective"
+msgstr ""
+
+#. module: helpdesk_arodriguez
+#: model:ir.model.fields,field_description:helpdesk_arodriguez.field_helpdesk_ticket__action_corrective
+msgid "Corrective Action"
+msgstr ""
+
+#. module: helpdesk_arodriguez
+#: model_terms:ir.actions.act_window,help:helpdesk_arodriguez.helpdesk_ticket_action
+msgid "Create a new ticket"
+msgstr ""
+
+#. module: helpdesk_arodriguez
+#: model:ir.model.fields,field_description:helpdesk_arodriguez.field_helpdesk_ticket__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: helpdesk_arodriguez
+#: model:ir.model.fields,field_description:helpdesk_arodriguez.field_helpdesk_ticket__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: helpdesk_arodriguez
+#: model:ir.model.fields,field_description:helpdesk_arodriguez.field_helpdesk_ticket__date
+msgid "Date"
+msgstr "Fecha"
+
+#. module: helpdesk_arodriguez
+#: model:ir.model.fields,field_description:helpdesk_arodriguez.field_helpdesk_ticket__deadline
+msgid "Deadline"
+msgstr "Fecha caducidad"
+
+#. module: helpdesk_arodriguez
+#: model:ir.model.fields,field_description:helpdesk_arodriguez.field_helpdesk_ticket__description
+#: model_terms:ir.ui.view,arch_db:helpdesk_arodriguez.view_helpdesk_ticket_form
+msgid "Description"
+msgstr "Descripción"
+
+#. module: helpdesk_arodriguez
+#: model:ir.model.fields,help:helpdesk_arodriguez.field_helpdesk_ticket__action_corrective
+msgid "Descrive corrective actions to do"
+msgstr ""
+
+#. module: helpdesk_arodriguez
+#: model:ir.model.fields,help:helpdesk_arodriguez.field_helpdesk_ticket__action_preventive
+msgid "Descrive preventive actions to do"
+msgstr ""
+
+#. module: helpdesk_arodriguez
+#: model:ir.model.fields,field_description:helpdesk_arodriguez.field_helpdesk_ticket__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: helpdesk_arodriguez
+#: model:ir.module.category,name:helpdesk_arodriguez.ir_module_category_helpdesk
+#: model:ir.ui.menu,name:helpdesk_arodriguez.hekpdesk_menu_root
+#: model:ir.ui.menu,name:helpdesk_arodriguez.hekpdesk_menu_submenu
+msgid "Helpdesk"
+msgstr ""
+
+#. module: helpdesk_arodriguez
+#: model:ir.model.fields,field_description:helpdesk_arodriguez.field_helpdesk_ticket__id
+msgid "ID"
+msgstr "ID"
+
+#. module: helpdesk_arodriguez
+#: model:ir.model.fields.selection,name:helpdesk_arodriguez.selection__helpdesk_ticket__state__in_progress
+msgid "In progress"
+msgstr "En progreso"
+
+#. module: helpdesk_arodriguez
+#: model:ir.model.fields,field_description:helpdesk_arodriguez.field_helpdesk_ticket____last_update
+msgid "Last Modified on"
+msgstr "Última modificación"
+
+#. module: helpdesk_arodriguez
+#: model:ir.model.fields,field_description:helpdesk_arodriguez.field_helpdesk_ticket__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: helpdesk_arodriguez
+#: model:ir.model.fields,field_description:helpdesk_arodriguez.field_helpdesk_ticket__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: helpdesk_arodriguez
+#: model:res.groups,name:helpdesk_arodriguez.helpdesk_manager
+msgid "Manager"
+msgstr "Administrador
+
+#. module: helpdesk_arodriguez
+#: model:ir.model.fields,field_description:helpdesk_arodriguez.field_helpdesk_ticket__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: helpdesk_arodriguez
+#: model:ir.model.fields.selection,name:helpdesk_arodriguez.selection__helpdesk_ticket__state__new
+msgid "New"
+msgstr "Nuevo"
+
+#. module: helpdesk_arodriguez
+#: model:ir.model.fields.selection,name:helpdesk_arodriguez.selection__helpdesk_ticket__state__pending
+#: model_terms:ir.ui.view,arch_db:helpdesk_arodriguez.view_helpdesk_ticket_form
+msgid "Pending"
+msgstr "Pendiente"
+
+#. module: helpdesk_arodriguez
+#: model_terms:ir.ui.view,arch_db:helpdesk_arodriguez.view_helpdesk_ticket_form
+msgid "Preventive"
+msgstr ""
+
+#. module: helpdesk_arodriguez
+#: model:ir.model.fields,field_description:helpdesk_arodriguez.field_helpdesk_ticket__action_preventive
+msgid "Preventive Action"
+msgstr "Acción preventiva"
+
+#. module: helpdesk_arodriguez
+#: model_terms:ir.ui.view,arch_db:helpdesk_arodriguez.view_helpdesk_ticket_form
+msgid "Quality"
+msgstr "Calidad"
+
+#. module: helpdesk_arodriguez
+#: model_terms:ir.ui.view,arch_db:helpdesk_arodriguez.view_helpdesk_ticket_form
+msgid "Resolve"
+msgstr "Resolver"
+
+#. module: helpdesk_arodriguez
+#: model:ir.model.fields.selection,name:helpdesk_arodriguez.selection__helpdesk_ticket__state__revolsed
+msgid "Resolved"
+msgstr "Resuelto"
+
+#. module: helpdesk_arodriguez
+#: model:ir.model.fields,field_description:helpdesk_arodriguez.field_helpdesk_ticket__state
+msgid "State"
+msgstr "Estado"
+
+#. module: helpdesk_arodriguez
+#: model:ir.model,name:helpdesk_arodriguez.model_helpdesk_ticket
+msgid "Ticket"
+msgstr "Ticket"
+
+#. module: helpdesk_arodriguez
+#: model:ir.actions.act_window,name:helpdesk_arodriguez.helpdesk_ticket_action
+#: model:ir.ui.menu,name:helpdesk_arodriguez.hekpdesk_menu_action
+#: model_terms:ir.ui.view,arch_db:helpdesk_arodriguez.view_helpdesk_ticket_tree
+msgid "Tickets"
+msgstr "Tickets"
+
+#. module: helpdesk_arodriguez
+#: model:ir.model.fields,field_description:helpdesk_arodriguez.field_helpdesk_ticket__time
+msgid "Time"
+msgstr ""
+
+#. module: helpdesk_arodriguez
+#: model:res.groups,name:helpdesk_arodriguez.helpdesk_user
+msgid "User"
+msgstr "Usuario"
