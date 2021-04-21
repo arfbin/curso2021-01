@@ -27,7 +27,7 @@
                             <field name="user_id"/>
                             <field name="assigned"/>
                             <field name="ticket_qty"/>
-                            <field name="time"/>
+                            <field name="time" widget="float_time"/>
                         </group>
                     </group>
                     <notebook>
@@ -65,6 +65,84 @@
                 <field name="date"/>
                 <field name="state"/>
             </tree>
+        </field>
+    </record>
+
+    <record id="view_helpdesk_ticket_search" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.search</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="arch" type="xml">
+            <search string="Ticket">
+                <field name="name"/>
+                <field name="user_id"/>
+                <filter string="Assigned Tickets" name="assigner_tickets" domain="[('user_id','!=',False)]"/>
+                <filter string="No Deadline" name="no_deadline" domain="[('deadline','!=',False)]"/>
+                <filter string="Deadline" name="deadline" context="{'group_by':'deadline'}"/>
+                <filter string="Assigned" name="user_id" context="{'group_by':'user_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_helpdesk_ticket_pivot" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.pivot</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="arch" type="xml">
+            <pivot string="Tickets">
+                <field name="user_id" type="row"/>
+                <field name="date" interval="month" type="col"/>
+                <field name="time" type="measure" widget="float_time"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_helpdesk_ticket_graph" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.graph</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="arch" type="xml">
+            <graph string="Tickets">
+                <field name="user_id"/>
+                <field name="time" type="measure" widget="float_time"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_helpdesk_ticket_calendar" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.calendar</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="arch" type="xml">
+            <calendar string="Tickets" date_start ="date" color="user_id" hide_time="true" event_limit ="5">
+                <field name="user_id" avatar_field ="image_128" />
+                <field name="name" />
+                <field name="user_id" filters="1" invisible="1"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="view_helpdesk_ticket_kanban" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.kanban</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_content">
+                                <div class="o_kanban_record_title">
+                                    <strong><field name="name"/></strong>
+                                </div>
+                                <div class="o_kanban_record_subtitle">
+                                    <field name="date"/> (<field name="time" widget="float_time"/>)
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_right">
+                                        <field name="user_id" widget="many2one_avatar_user"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
         </field>
     </record>
 
