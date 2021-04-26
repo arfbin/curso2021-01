@@ -14,5 +14,6 @@
         "security/ir.model.access.csv",
         "views/helpdesk_menu.xml",
         "views/helpdesk_views.xml",
+        "views/helpdesk_tag_views.xml",
     ],    
 }
