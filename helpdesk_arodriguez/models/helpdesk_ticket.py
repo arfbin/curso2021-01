@@ -1,4 +1,6 @@
-from odoo import api, models, fields
+from odoo import api, models, fields, _
+from datetime import timedelta
+from odoo.exceptions import ValidationError
 
 
 class HelpdeskTicketAction(models.Model):
@@ -22,11 +24,19 @@ class HelpdeskTicketTag(models.Model):
     ticket_ids = fields.Many2many(
         comodel_name='helpdesk.ticket', 
         string='Tickets')
-    
+
+    @api.model
+    def cron_delete_tag(self):
+        result = self.search([('ticket_ids', '=', False)])
+        result.unlink()
+
 
 class HelpdeskTicket(models.Model):
     _name = 'helpdesk.ticket'
     _description = 'Ticket'
+
+    def _date_default_today(self):
+        return fields.Date.today()
 
     name = fields.Char(
         string='Name', 
@@ -34,7 +44,8 @@ class HelpdeskTicket(models.Model):
     description = fields.Text(
         string='Description')
     date = fields.Date(
-        string='Date')
+        string='Date',
+        default=_date_default_today)
     state = fields.Selection([
         ('new', 'New'),
         ('assigned', 'Assigned'),
@@ -73,6 +84,16 @@ class HelpdeskTicket(models.Model):
     tag_name = fields.Char(
         string='Tag Name')
     
+    @api.constrains('time')
+    def _verify_time(self):
+        for record in self:
+            if record.time and record.time < 0:
+                raise ValidationError(_("The TIME can not be negative."))
+    
+    @api.onchange('date')
+    def _onchange_date(self):
+        self.deadline = self.date and self.date + timedelta(days=1)
+    
     #Asignar, cambia estado a asignado y pone a true el campo asignado, visible sólo con estado = nuevo
     def do_assign(self):
         self.ensure_one()
@@ -106,6 +127,13 @@ class HelpdeskTicket(models.Model):
     
     def create_tag(self):
         self.ensure_one()
-        self.write({
-            'tag_ids': [(0,0,{'name': self.tag_name})]
-        })
+        #self.write({
+        #   'tag_ids': [(0,0,{'name': self.tag_name})]
+        #})
+        action = self.env.ref('helpdesk_arodriguez.action_new_tag').read()[0]
+        action['context'] = {
+            'default_name': self.tag_name,
+            'default_ticket_ids': [(6, 0 , self.ids)]
+        }
+        self.tag_name = False
+        return action

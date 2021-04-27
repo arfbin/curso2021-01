@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>    
+    
+    <record id="view_helpdesk_ticket_tag_form" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.tag.form</field>
+        <field name="model">helpdesk.ticket.tag</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_tite">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <field name="ticket_ids"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_helpdesk_ticket_tag_simple_form" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.tag.simple.form</field>
+        <field name="model">helpdesk.ticket.tag</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_new_tag" model="ir.actions.act_window">
+        <field name="name">New Tag</field>
+        <field name="res_model">helpdesk.ticket.tag</field>
+        <field name="target">new</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('view_helpdesk_ticket_tag_form')})]"/>
+        <field name="view_mode">form</field>
+    </record>
+
+</odoo>

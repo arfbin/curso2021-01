@@ -10,6 +10,7 @@
         "base",
     ],
     "data": [
+        "data/delete_tag_cron.xml",
         "security/helpdesk_security.xml",
         "security/ir.model.access.csv",
         "views/helpdesk_menu.xml",
