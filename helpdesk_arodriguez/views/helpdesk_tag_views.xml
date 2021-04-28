@@ -9,6 +9,7 @@
                 <sheet>
                     <div class="oe_tite">
                         <h1><field name="name"/></h1>
+                        <button string="Create Ticket" name="%(helpdesk_arodriguez.create_ticket_action)d" type="action"/>
                     </div>
                     <field name="ticket_ids"/>
                 </sheet>

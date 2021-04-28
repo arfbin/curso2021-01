@@ -12,6 +12,8 @@ class HelpdeskTicketAction(models.Model):
     ticket_id = fields.Many2one(
         comodel_name='helpdesk.ticket', 
         string='Ticket')
+    time = fields.Float(
+        string='Time')
 
 
 class HelpdeskTicketTag(models.Model):
@@ -56,6 +58,9 @@ class HelpdeskTicket(models.Model):
         string='State',
         default='new')
     time = fields.Float(
+        compute='_get_time', 
+        inverse='_set_time', 
+        search='_search_time',
         string='Time')
     assigned = fields.Boolean(
         string='Assigned',
@@ -137,3 +142,23 @@ class HelpdeskTicket(models.Model):
         }
         self.tag_name = False
         return action
+
+    @api.depends('action_ids.time')
+    def _get_time(self):
+        for record in self:
+            record.time = sum(record.action_ids.mapped('time'))
+            
+    def _set_time(self):
+        for record in self:
+            if record.time:
+                time_now = sum(record.action_ids.mapped('time'))
+                next_time = record.time - time_now
+                if next_time:
+                    data = {'name': '/', 'date': fields.Date.today(), 'time': next_time, 'ticket_id': record.id}
+                    self.env['helpdesk.ticket.action'].create(data)
+    
+    def _search_time(self, operator, value):
+        actions = self.env['helpdesk.ticket.action'].search[('time', operator, value)]
+        return [('id', 'in', actions.mapped(ticket_id).ids)]
+
+

@@ -44,11 +44,13 @@
                                 <tree editable="bottom">
                                     <field name="name"/>
                                     <field name="date"/>
+                                    <field name="time" widget="float_time"/>
                                 </tree>
                                 <form>
                                     <group>
                                         <field name="name"/>
                                         <field name="date"/>
+                                        <field name="time" widget="float_time"/>
                                     </group>
                                 </form>
                             </field>
