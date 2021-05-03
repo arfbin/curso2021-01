@@ -118,6 +118,10 @@ class HelpdeskTicket(models.Model):
     def do_canceled(self):
         self.ensure_one()
         self.state = 'canceled'
+    
+    def do_canceled_multi(self):
+        for record in self:
+            record.do_canceled()
         
     @api.depends('user_id')
     def _compute_assigner(self):
