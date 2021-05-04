@@ -36,6 +36,7 @@ class HelpdeskTicketTag(models.Model):
 class HelpdeskTicket(models.Model):
     _name = 'helpdesk.ticket'
     _description = 'Ticket'
+    _inherit = ['mail.thread.cc', 'mail.activity.mixin']
 
     def _date_default_today(self):
         return fields.Date.today()
@@ -88,6 +89,9 @@ class HelpdeskTicket(models.Model):
         compute='_compute_ticket_qty')
     tag_name = fields.Char(
         string='Tag Name')
+    partner_id = fields.Many2one(
+        comodel_name='res.partner', 
+        string='Partner')
     
     @api.constrains('time')
     def _verify_time(self):
